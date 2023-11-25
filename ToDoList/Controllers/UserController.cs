@@ -15,31 +15,31 @@ namespace IaOrganization.Controllers
             _userService = userService;
         }
 
-        [HttpGet("GetAllUser")]
+        [HttpGet]
         public async Task<ActionResult<List<User>>> GetAllUser()
         {
             return Ok( await _userService.GetAllUserAsync());
         }
 
-        [HttpPost("CreateUser")]
+        [HttpPost]
         public async Task<ActionResult<User>> CreateUser(User request)
         {
             return Ok(await _userService.AddNewUserAsync(request));
         }
 
-        [HttpGet("GetAUser")]
+        [HttpGet]
         public async Task<ActionResult<User>> GetAUser(string email)
         {
             return Ok(await _userService.GetASingleUserAsync(email));
         }
 
-        [HttpPut("UpdateUser")]
+        [HttpPut]
         public async Task<ActionResult<User>> UpdateUser(UpdateUser request, string email)
         {
             return Ok(await _userService.UpdateUserAsync(request, email));
         }
 
-        [HttpDelete("DeleteUser")]
+        [HttpDelete]
         public async Task<ActionResult<User>> DeleteAUser(string email)
         {
             return Ok(await _userService.DeleteUserAsync(email));
